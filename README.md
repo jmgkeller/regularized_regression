@@ -11,6 +11,7 @@ mock example for science forum
 * **glmnet** tutorial [glmnet Vignette](https://web.stanford.edu/~hastie/glmnet/glmnet_alpha.html) (Hastie and Qian) 
 
 ### Using lasso regression to predict baseball salaries
+#### The data
 * We will use a small data set avaialbe in CRAN to try to predict MLB salaries.  You can access the data through R by installing the Introduction to Statisitcal Learning data package (ISLR) and then loading the ISLR library
 ```s
 install.packages("ISLR")
