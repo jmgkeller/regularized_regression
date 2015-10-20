@@ -10,7 +10,8 @@ mock example for science forum
 * Additional theoretical and intuition background available from [Elements of Statisitcal Learning](http://statweb.stanford.edu/~tibs/ElemStatLearn/) (Hastie, Tibshirani, and Friedman) and [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Fourth%20Printing.pdf) (James, Witten, Hastie, and Tibshirani) 
 * **glmnet** tutorial [glmnet Vignette](https://web.stanford.edu/~hastie/glmnet/glmnet_alpha.html) (Hastie and Qian) 
 
-### Installing the package
+### Using lasso regression to predict baseball salaries
+  We will use a small data set avaialbe in CRAN to try to predict MLB salaries
 
 * Stable version on CRAN:
 
