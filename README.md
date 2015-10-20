@@ -6,7 +6,8 @@ mock example for science forum
 
 ### Theoretical background on regularized regression can be found below
 * [Ridge Regression: Biased Estimation for Nonorthogonal Problems](http://math.arizona.edu/~hzhang/math574m/Read/Ridge.pdf)  (Hoerl and Kennard 1970)
-* [Regression Shrinkage and Selection via the Lasso(http://statweb.stanford.edu/~tibs/lasso/lasso.pdf) (tibshirani 1996)
+* [Regression Shrinkage and Selection via the Lasso](http://statweb.stanford.edu/~tibs/lasso/lasso.pdf) (tibshirani 1996)
+* Additional theoretical and intuition background available from [Elements of Statisitcal Learning](http://statweb.stanford.edu/~tibs/ElemStatLearn/) and [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Fourth%20Printing.pdf) 
 
 ### Installing the package
 
