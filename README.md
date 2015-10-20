@@ -34,4 +34,4 @@ testdat <- Hitters[-train_idx,]
 * We are using linear lasso regression regression to predict MLB player salary from individual player characteristics.  The obbjective function for lasso regression is below:
 ![lasso_form](https://cloud.githubusercontent.com/assets/10633220/10622472/d3b6c952-7755-11e5-9b59-5e02e49ff5fb.png)
 * Notice the first bit of the objective function is just standard OLS. Lambda is a penalty parameter choosen by cross-validation.  As Lambda increases coefficents are shrunken towards zero.
-
+\( \lambda \ \Lambda \)
