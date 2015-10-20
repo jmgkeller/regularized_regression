@@ -17,3 +17,9 @@ mock example for science forum
 install.packages("ISLR")
 library(ISLR)
 ```
+* We will preform minimal data preprocessing.  There are 59 player with missing salaries, so we will simply remove observations with missing salary or have missing values in any variable using the ```s na.omit``` function
+```s
+Hitters <- na.omit(Hitters)
+```
+
+
