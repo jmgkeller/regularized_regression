@@ -4,8 +4,8 @@ mock example for science forum
 
 **GLMnet** is R packeage written by Jerome Friedman, Trevor Hastie, Noah Simon, and Rob Tibshirani that allows for easy application of regularized generalized linear models to data.  
 
-* Theoretical background on regularized regression csn be found below
-* Ridge Regression: Biased Estimation for Nonorthogonal Problems (Hoerl and Kennard 1970)(with [ridge paper](http://math.arizona.edu/~hzhang/math574m/Read/Ridge.pdf))
+### Theoretical background on regularized regression csn be found below
+* [Ridge Regression: Biased Estimation for Nonorthogonal Problems](http://math.arizona.edu/~hzhang/math574m/Read/Ridge.pdf)  (Hoerl and Kennard 1970)
 
 ### Installing the package
 
