@@ -31,8 +31,6 @@ traindat <- Hitters[train_idx,]
 testdat <- Hitters[-train_idx,]
 ```
 ### Methodology
-![lassoform](https://github.com/jmgkeller/regularized_regression/blob/master/lassoform.png)
-
-![solarized palette](https://github.com/altercation/solarized/raw/master/img/solarized-palette.png)
+![lasso_form](https://cloud.githubusercontent.com/assets/10633220/10622472/d3b6c952-7755-11e5-9b59-5e02e49ff5fb.png)
 
 
