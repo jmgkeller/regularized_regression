@@ -1,5 +1,5 @@
-# regularized_regression
-mock for science forum
+# regularized regression
+mock example for science forum
 
 
 **LDAvis** is designed to help users interpret the topics in a topic model that has been fit to a corpus of text data. The package extracts information from a fitted LDA topic model to inform an interactive web-based visualization.
