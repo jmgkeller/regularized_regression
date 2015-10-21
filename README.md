@@ -48,4 +48,6 @@ ytest <- testdat$Salary
 * The penalty term, ||&#946;||<sub>1</sub>, will cause predictions to be unfair if feature variables are not on the same scale.  Both ``` glmnet``` and ``` cv.glmnet``` functions in **glmnet** scale input features by default
 * In the predicting MLB player salary, I use a naive lasso regression.  I pluck player salary and make it the dependent variable and use the rest of the variables as features to predict player salary.  
 * I rely on the lasso subsetting property to preform automatic variable selection.  To understand how the lasso preforms variable selection, considered the following constrained optimization problem:
+![laasoconopt](https://cloud.githubusercontent.com/assets/10633220/10644493/0a1c3800-77f7-11e5-8d29-d6fec2125957.png)
+In a simple two diminsion example, we can view the problem geometrically as
 
