@@ -49,5 +49,7 @@ ytest <- testdat$Salary
 * In the predicting MLB player salary, I use a naive lasso regression.  I pluck player salary and make it the dependent variable and use the rest of the variables as features to predict player salary.  
 * I rely on the lasso subsetting property to preform automatic variable selection.  To understand how the lasso preforms variable selection, considered the following constrained optimization problem:
 ![laasoconopt](https://cloud.githubusercontent.com/assets/10633220/10644493/0a1c3800-77f7-11e5-8d29-d6fec2125957.png)
-In a simple two diminsion example, we can view the problem geometrically as
+* In a simple two diminsion case, we can view the problem geometrically as
+![geographiclasso](https://cloud.githubusercontent.com/assets/10633220/10644667/e0693638-77f7-11e5-8d6a-eed9a830922d.png)
+* The blue diamond is the constraint region ||&#946;||<sub>1</sub> and ||&#946;||<sub>2</sub> &#8804; t, where t is the regularization parameter (previously &#955;)
 
