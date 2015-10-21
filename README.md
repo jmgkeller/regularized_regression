@@ -33,4 +33,4 @@ testdat <- Hitters[-train_idx,]
 ### Methodology
 * We are using linear lasso regression regression to predict MLB player salary from individual player characteristics.  The obbjective function for lasso regression is below:
 ![lassobeta](https://cloud.githubusercontent.com/assets/10633220/10624126/8adef034-7763-11e5-91bc-95824916ed18.png)
-* We want to choose the &#946;'s that minimize the above function. Notice the first bit of the objective function is just standard OLS. &#955; is a penalty parameter choosen by cross-validation.  As &#955; increases coefficents shrink towards zero.
+* We want to choose the &#946;'s that minimize the above function. Notice if we set &#955;=0 then the estimate for &#946; is just standard OLS.  As &#955; approaches &#8734;, the estimate for the lasso &#946;=0.  &#955; is a known as the penalty or regularization parameter and is typically choosen by cross-validation.  
