@@ -31,6 +31,14 @@ train_idx <- sample(1:nrow(Hitters),round(0.8 * nrow(Hitters), 0),replace=FALSE)
 traindat <- Hitters[train_idx,]
 testdat <- Hitters[-train_idx,]
 ```
+* To use ```glmnet``` functions, **data must be in matrix format**. Below is how I converted the training and test data sets created above from data frames to matrices: 
+```s
+xtrain <- model.matrix(Salary ~., traindat )[,-1]
+ytrain <- traindat$Salary
+
+xtest <- model.matrix(Salary ~., testdat )[,-1]
+ytest <- testdat$Salary
+```
 ### Methodology
 * We are using linear lasso regression regression to predict MLB player salary from individual player characteristics.  The obbjective function for lasso regression is below:
 ![lassobeta](https://cloud.githubusercontent.com/assets/10633220/10624126/8adef034-7763-11e5-91bc-95824916ed18.png)
@@ -38,3 +46,6 @@ testdat <- Hitters[-train_idx,]
 * Typically, the intercept is not penalized, so we have the below estimate for &#946;'s:
 ![lassointer](https://cloud.githubusercontent.com/assets/10633220/10641478/6c54deba-77e7-11e5-9e82-221b9ff8659f.png)
 * The penalty term, ||&#946;||<sub>1</sub>, will cause predictions to be unfair if feature variables are not on the same scale.  Both ``` glmnet``` and ``` cv.glmnet``` functions in **glmnet** scale input features by default
+* In the predicting MLB player salary, I use a naive lasso regression.  I pluck player salary and make it the dependent variable and use the rest of the variables as features to predict player salary.  
+* I rely on the lasso subsetting property to preform automatic variable selection.  To understand how the lasso preforms variable selection, considered the following constrained optimization problem:
+
