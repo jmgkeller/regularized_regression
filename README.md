@@ -64,7 +64,7 @@ lasso <- cv.glmnet(x = xtrain            # feature matrix
                   ,family = 'gaussian'   # error distribution (gaussian is linear regression, binomial is logistic, etc.)
                   ,alpha = 1)            # type of regularization. alpha=0 is ridge, alpha=1 is lasso, alpha between 0 and 1 is elastic net
 ```
-* We can visually inspect the relationship between log(&#955;) and MSE by using: ```plot(lasso)```
+* We can visually inspect the relationship between log(&#955;) and MSE by using the ```plot(lasso)``` function
 ![lambdamin](https://cloud.githubusercontent.com/assets/10633220/10792647/e16c5f26-7d63-11e5-9582-7220d8178b9c.png)
 
 * The vertical line at log(&#955;) approximately 3 is the &#955; value that minimizing mean squared error and the vertical line at log(&#955;) approximately 4.75 is the &#955; value that minimizes MSE plus 1 standard deviation.  Below are the outputed coeficients from glmnet.  The coefficients on the left are produced by using &#955;<sub>min</sub> and the coefficients on the right are produced using &#955;<sub>1se</sub>.  I used the &#955;<sub>1se</sub> because a larger &#955; produces a more simple model.
