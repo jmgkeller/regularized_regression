@@ -1,3 +1,4 @@
+### branded colors
 fushia <- rgb(163,26,126, ,max=255) #Fushsia
 teal <- rgb(0,155,116, max=255) # Teal
 pumpkin <- rgb(225,112,0, max=255) # pumpkin
@@ -31,10 +32,10 @@ testdat <- Hitters[-train_idx,]
 
 ### format test and training data to matrixdata because data must be in matrix format for glmnet
 xtrain <- model.matrix(Salary ~., traindat )[,-1]
-ytrain <- traindat$Salary
+ytrain <- log(traindat$Salary)
 
 xtest <- model.matrix(Salary ~., testdat )[,-1]
-ytest <- testdat$Salary
+ytest <- log(testdat$Salary)
 
 ### lasso regression
 
