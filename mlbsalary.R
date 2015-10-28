@@ -39,6 +39,7 @@ ytest <- testdat$Salary
 ### lasso regression
 
 ### use glmnet's built-in k-fold cross-validation to tune lambda
+set.seed(22)
 lasso <- cv.glmnet(x = xtrain             # feature matrix
                    ,y = ytrain            # response vector
                    ,nfolds = 5            # folds for CV
