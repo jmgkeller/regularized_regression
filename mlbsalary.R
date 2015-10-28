@@ -67,14 +67,14 @@ yhattrain <- predict(lasso_model, newx = xtrain, s = lambda_1se)
 ### Residual Scatterplot (Predicted vs Actual) for training data
 lasso_pct_difference_train <- (yhattrain - ytrain) / ((yhattrain + ytrain / 2))
 color_train <- rep("red", length(lasso_pct_difference_train))
-color_train[lasso_pct_difference_train > -.255 & lasso_pct_difference_train < .255] <- "yellow"
+color_train[lasso_pct_difference_train > -.155 & lasso_pct_difference_train < .155] <- "yellow"
 color_train[lasso_pct_difference_train > -.055 & lasso_pct_difference_train < .055] <- "green"
 plot(yhattrain, ytrain ,col=color_train)
 abline(a = 0, b = 1)
 
 
 length(lasso_pct_difference_train[lasso_pct_difference_train > -.055 & lasso_pct_difference_train < .055])/length(lasso_pct_difference_train)
-length(lasso_pct_difference_train[lasso_pct_difference_train > -.15 & lasso_pct_difference_train < .15])/length(lasso_pct_difference_train)
+length(lasso_pct_difference_train[lasso_pct_difference_train > -.155 & lasso_pct_difference_train < .155])/length(lasso_pct_difference_train)
 length(lasso_pct_difference_train[lasso_pct_difference_train > -.255 & lasso_pct_difference_train < .255])/length(lasso_pct_difference_train)    
 length(lasso_pct_difference_train[lasso_pct_difference_train > -.505 & lasso_pct_difference_train < .505])/length(lasso_pct_difference_train)    
 
@@ -89,14 +89,14 @@ yhattest <- predict(lasso_model, newx = xtest, s = lambda_1se)
 ### Residual Scatterplot (Predicted vs Actual) for test data
 lasso_pct_difference_test <- (yhattest - ytest) / ((yhattest + ytest / 2))
 color_train <- rep("red", length(lasso_pct_difference_test))
-color_train[lasso_pct_difference_test > -.255 & lasso_pct_difference_test < .255] <- "yellow"
+color_train[lasso_pct_difference_test > -.155 & lasso_pct_difference_test < .155] <- "yellow"
 color_train[lasso_pct_difference_test > -.055 & lasso_pct_difference_test < .055] <- "green"
 plot(yhattest, ytest ,col=color_train)
 abline(a = 0, b = 1)
 
 
 length(lasso_pct_difference_test[lasso_pct_difference_test > -.055 & lasso_pct_difference_test < .055])/length(lasso_pct_difference_test)
-length(lasso_pct_difference_test[lasso_pct_difference_test > -.15 & lasso_pct_difference_test < .15])/length(lasso_pct_difference_test)
+length(lasso_pct_difference_test[lasso_pct_difference_test > -.155 & lasso_pct_difference_test < .155])/length(lasso_pct_difference_test)
 length(lasso_pct_difference_test[lasso_pct_difference_test > -.255 & lasso_pct_difference_test < .255])/length(lasso_pct_difference_test)    
 length(lasso_pct_difference_test[lasso_pct_difference_test > -.505 & lasso_pct_difference_test < .505])/length(lasso_pct_difference_test)    
 
