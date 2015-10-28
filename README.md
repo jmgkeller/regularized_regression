@@ -68,4 +68,4 @@ ytest <- testdat$Salary
 
 * Test residual distribution for the &#955;<sub>min</sub> lasso regression model
 
-
+![testresiddist](https://cloud.githubusercontent.com/assets/10633220/10796973/d8696208-7d76-11e5-87e4-518ef7ecf1df.png)
