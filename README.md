@@ -59,3 +59,5 @@ ytest <- testdat$Salary
 ![lambdamin](https://cloud.githubusercontent.com/assets/10633220/10792647/e16c5f26-7d63-11e5-9582-7220d8178b9c.png)
 
 * The vertical line at log(&#955;) approximately 3 is the &#955; value that minimizing mean squared error and the vertical line at log(&#955;) approximately 4.75 is the &#955; value that minimizes MSE plus 1 standard deviation.  I used the 1 standard deviation &#955; because a larger &#955; produces a more simple model
+
+<img width="548" alt="minvs1se" src="https://cloud.githubusercontent.com/assets/10633220/10793629/12089eb6-7d68-11e5-9467-ef020f084cae.png">
