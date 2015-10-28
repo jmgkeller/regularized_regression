@@ -55,3 +55,5 @@ ytest <- testdat$Salary
 
 ### Results 
 
+![lambdamin](https://cloud.githubusercontent.com/assets/10633220/10792647/e16c5f26-7d63-11e5-9582-7220d8178b9c.png)
+
