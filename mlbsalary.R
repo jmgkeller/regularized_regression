@@ -29,7 +29,7 @@ train_idx <- sample(1:nrow(Hitters),round(0.8 * nrow(Hitters), 0),replace=FALSE)
 traindat <- Hitters[train_idx,]
 testdat <- Hitters[-train_idx,]
 
-
+### format test and training data to matrixdata because data must be in matrix format for glmnet
 xtrain <- model.matrix(Salary ~., traindat )[,-1]
 ytrain <- traindat$Salary
 
@@ -39,12 +39,12 @@ ytest <- testdat$Salary
 ### lasso regression
 
 ### use glmnet's built-in k-fold cross-validation to tune lambda
-lasso <- cv.glmnet(x = xtrain               # feature matrix
-                   ,y = ytrain               # response vector
-                   ,nfolds = 5         # folds for CV
-                   ,lambda =            # path for lambda
-                   ,family = 'gaussian' # error distribution (gaussian is linear regression, binomial is logistic, etc.)
-                   ,alpha = 1)          # type of regularization. alpha=0 is ridge, alpha=1 is lasso, alpha between 0 and 1 is elastic net
+lasso <- cv.glmnet(x = xtrain             # feature matrix
+                   ,y = ytrain            # response vector
+                   ,nfolds = 5            # folds for CV
+                   ,lambda =              # path for lambda but we use the build in search for lambda provided by cv.glmnet
+                   ,family = 'gaussian'   # error distribution (gaussian is linear regression, binomial is logistic, etc.)
+                   ,alpha = 1)            # type of regularization. alpha=0 is ridge, alpha=1 is lasso, alpha between 0 and 1 is elastic net
 
 ### plot error curve across log(lambda)
 plot(lasso)
