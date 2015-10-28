@@ -53,3 +53,5 @@ ytest <- testdat$Salary
 ![geographiclasso](https://cloud.githubusercontent.com/assets/10633220/10644667/e0693638-77f7-11e5-8d6a-eed9a830922d.png)
 * The blue diamond is the constraint region |&#946;|<sub>1</sub> + |&#946;|<sub>2</sub> &#8804; t, where t is the regularization parameter (previously &#955;).  The red elispes are countours of the least squares loss function.  Each ellipse has a constant residual sum of squares.   As the ellipses expand away from the least squares coefficient estimates, the residual sum of squares increases.  The lasso objective function is minimized at the point where the red ellispe touches the blue diamond (i.e., the smallest residual sum of squares subject to the regularization parameter).  Because of the shape of the diamond shape of the constraint, often the minimal residual sum of squares will satisfy the regularization constraint at a corner, resulting in one coefficient esimate being set to 0
 
+### Results 
+
