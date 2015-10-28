@@ -24,7 +24,7 @@ Hitters <- na.omit(Hitters)
 ```
 * Before modeling, check summary statistics, scatter plots and correlation between independent and dependent variablies and among dependent variables 
 * Although not preformed in this demo, it is generally a good idea explore how transforming and interacting features may improve your model
-* Split data into training and test sets so you can determine if the resulting model output will generalize well
+* Split data into training and test sets so you can determine if the resulting model output will generalize well.  Below, I use 80% of the original dataset to train and the other 20% of the orininal dataset to test.
 ```s
 set.seed(21)
 train_idx <- sample(1:nrow(Hitters),round(0.8 * nrow(Hitters), 0),replace=FALSE)
