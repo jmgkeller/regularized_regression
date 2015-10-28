@@ -62,10 +62,10 @@ ytest <- testdat$Salary
 
 <img width="548" alt="minvs1se" src="https://cloud.githubusercontent.com/assets/10633220/10793629/12089eb6-7d68-11e5-9467-ef020f084cae.png">
 
-* Training residual distribution for the &#955;<sub>min</sub> lasso regression model
+* Training residual distribution for the &#955;<sub>1se</sub> lasso regression model
 
 ![trainresiddist](https://cloud.githubusercontent.com/assets/10633220/10796913/9eefbf2c-7d76-11e5-839a-4d0aeaafe3a3.png)
 
-* Test residual distribution for the &#955;<sub>min</sub> lasso regression model
+* Test residual distribution for the &#955;<sub>1se</sub> lasso regression model
 
 ![testresiddist](https://cloud.githubusercontent.com/assets/10633220/10796973/d8696208-7d76-11e5-87e4-518ef7ecf1df.png)
