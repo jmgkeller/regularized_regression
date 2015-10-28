@@ -57,12 +57,12 @@ ytest <- testdat$Salary
 * Below is the **R** code used to search &#955; values using cross-validation to find the &#955; that minimizies MSE within the specified regression model.  In this case we are regressing the 19 features in the set: AtBat, Hits, HmRun, Runs, RBI, Walks, Years, CAtBat, CHits, CHmRun, CRuns, CRBI, CWalks, League, Division, PutOuts, Assists, Errors, Salary, and NewLeague on MLB player salary
 ```s
 ### use glmnet's built-in k-fold cross-validation to tune lambda
-lasso <- cv.glmnet(x = xtrain             # feature matrix
-                   ,y = ytrain            # response vector
-                   ,nfolds = 5            # folds for CV
-                   ,lambda =              # path for lambda but we use the build in search for lambda provided by cv.glmnet
-                   ,family = 'gaussian'   # error distribution (gaussian is linear regression, binomial is logistic, etc.)
-                   ,alpha = 1)            # type of regularization. alpha=0 is ridge, alpha=1 is lasso, alpha between 0 and 1 is elastic net
+lasso <- cv.glmnet(x = xtrain            # feature matrix
+                  ,y = ytrain            # response vector
+                  ,nfolds = 5            # folds for CV
+                  ,lambda =              # path for lambda but we use the build in search for lambda provided by cv.glmnet
+                  ,family = 'gaussian'   # error distribution (gaussian is linear regression, binomial is logistic, etc.)
+                  ,alpha = 1)            # type of regularization. alpha=0 is ridge, alpha=1 is lasso, alpha between 0 and 1 is elastic net
 ```
 * We can visually inspect the relationship between log(&#955;) and MSE by using: ```plot(lasso)```
 ![lambdamin](https://cloud.githubusercontent.com/assets/10633220/10792647/e16c5f26-7d63-11e5-9582-7220d8178b9c.png)
