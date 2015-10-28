@@ -54,7 +54,7 @@ ytest <- testdat$Salary
 * The blue diamond is the constraint region |&#946;|<sub>1</sub> + |&#946;|<sub>2</sub> &#8804; t, where t is the regularization parameter (previously &#955;).  The red elispes are countours of the least squares loss function.  Each ellipse has a constant residual sum of squares.   As the ellipses expand away from the least squares coefficient estimates, the residual sum of squares increases.  The lasso objective function is minimized at the point where the red ellispe touches the blue diamond (i.e., the smallest residual sum of squares subject to the regularization parameter).  Because of the shape of the blue diamond constraint, often the minimal residual sum of squares will satisfy the regularization constraint at a corner, resulting in one coefficient esimate being set to 0.
 
 ### Results 
-* Below is the cross-validated values used to minimize &#955; when regressing MLB player salary on the 19 feature set: AtBat, Hits, HmRun, Runs, RBI, Walks, Years, CAtBat, CHits, CHmRun, CRuns, CRBI, CWalks, League, Division, PutOuts, Assists, Errors, Salary, and NewLeague.  Below is a code snippit to execute cross-validation to find optimal &#955;s
+* Below is the **R** code used to search &#955; values using cross-validation to find the &#955; that minimizies MSE within the specified regression model.  In this case we are regressing the 19 features in the set: AtBat, Hits, HmRun, Runs, RBI, Walks, Years, CAtBat, CHits, CHmRun, CRuns, CRBI, CWalks, League, Division, PutOuts, Assists, Errors, Salary, and NewLeague on MLB player salary
 ```s
 ### use glmnet's built-in k-fold cross-validation to tune lambda
 lasso <- cv.glmnet(x = xtrain             # feature matrix
@@ -64,7 +64,7 @@ lasso <- cv.glmnet(x = xtrain             # feature matrix
                    ,family = 'gaussian'   # error distribution (gaussian is linear regression, binomial is logistic, etc.)
                    ,alpha = 1)            # type of regularization. alpha=0 is ridge, alpha=1 is lasso, alpha between 0 and 1 is elastic net
 ```
-
+* We can visually inspect the relationship between log(&#955;) and MSE by using: ```plot(lasso)```
 ![lambdamin](https://cloud.githubusercontent.com/assets/10633220/10792647/e16c5f26-7d63-11e5-9582-7220d8178b9c.png)
 
 * The vertical line at log(&#955;) approximately 3 is the &#955; value that minimizing mean squared error and the vertical line at log(&#955;) approximately 4.75 is the &#955; value that minimizes MSE plus 1 standard deviation.  Below are the outputed coeficients from glmnet.  The coefficients on the left are produced by using &#955;<sub>min</sub> and the coefficients on the right are produced using &#955;<sub>1se</sub>.  I used the &#955;<sub>min</sub> because a larger &#955; produces a more simple model.
