@@ -55,5 +55,6 @@ ytest <- testdat$Salary
 
 ### Results 
 * Below is the cross-validated values used to minimize &#955; when regressing MLB player salary on the 19 feature set: AtBat, Hits, HmRun, Runs, RBI, Walks, Years, CAtBat, CHits, CHmRun, CRuns, CRBI, CWalks, League, Division, PutOuts, Assists, Errors, Salary, and NewLeague.  The vertical line at log(&#955;) approximately 3 is the &#955; value that minimizing mean squared error and the vertical line at log(&#955;) approximately 4.75 is the &#955; value that minimizes MSE plus 1 standard deviation.  I used the 1 standard deviation &#955; because a larger &#955; produces a simplier model
+
 ![lambdamin](https://cloud.githubusercontent.com/assets/10633220/10792647/e16c5f26-7d63-11e5-9582-7220d8178b9c.png)
 
