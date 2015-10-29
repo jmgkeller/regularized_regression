@@ -88,7 +88,7 @@ plot(yhattrain, ytrain ,col=color_train, main = "Training: Predicted vs Actuals"
 abline(a = 0, b = 1)
 legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("dark green", "dark orange", "dark red"),lty=1, lwd=2)
 ```
-![trainpva](https://cloud.githubusercontent.com/assets/10633220/10829500/b3e3db40-7e50-11e5-94eb-ce06b430bc2d.png)
+![trainpva](https://cloud.githubusercontent.com/assets/10633220/10830188/b5272af8-7e54-11e5-9173-960c240530a6.png)
 
 * I repeat the same process with the test data:
 ```s
