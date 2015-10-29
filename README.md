@@ -13,7 +13,7 @@ mock example for science forum
 
 ### Using lasso regression to predict baseball salaries
 #### Data
-* We will use a small data set avaialbe in CRAN to try to predict MLB salaries.  You can access the data through R by installing the Introduction to Statisitcal Learning data package (ISLR) and then loading the ISLR library
+* We will use a small data set avaialbe in CRAN to try to predict log MLB salaries.  You can access the data through R by installing the Introduction to Statisitcal Learning data package (ISLR) and then loading the ISLR library
 ```s
 install.packages("ISLR")
 library(ISLR)
@@ -40,7 +40,7 @@ xtest <- model.matrix(Salary ~., testdat )[,-1]
 ytest <- testdat$Salary
 ```
 ### Methodology
-* We are using linear lasso regression regression to predict MLB player salary from individual player characteristics.  The obbjective function for lasso regression is below:
+* We are using linear lasso regression regression to predict log MLB player salary from individual player characteristics.  The obbjective function for lasso regression is below:
 ![lassobeta](https://cloud.githubusercontent.com/assets/10633220/10624126/8adef034-7763-11e5-91bc-95824916ed18.png)
 * We want to choose the &#946;'s that minimize the above function. Notice if we set &#955;=0 then the estimate for &#946; is just standard OLS.  As &#955; &#8594; &#8734;, the estimate for the lasso &#946;=0.  &#955; is a known as the penalty or regularization parameter and is typically choosen by cross-validation.  
 * Typically, the intercept is not penalized, so we have the below estimate for &#946;'s:
@@ -54,7 +54,7 @@ ytest <- testdat$Salary
 * The blue diamond is the constraint region |&#946;|<sub>1</sub> + |&#946;|<sub>2</sub> &#8804; t, where t is the regularization parameter (previously &#955;).  The red elispes are countours of the least squares loss function.  Each ellipse has a constant residual sum of squares.   As the ellipses expand away from the least squares coefficient estimates, the residual sum of squares increases.  The lasso objective function is minimized at the point where the red ellispe touches the blue diamond (i.e., the smallest residual sum of squares subject to the regularization parameter).  Because of the shape of the blue diamond constraint, often the minimal residual sum of squares will satisfy the regularization constraint at a corner, resulting in one coefficient esimate being set to 0.
 
 ### Results 
-* Below is the **R** code used to search &#955; values using cross-validation to find the &#955; that minimizies MSE within the specified regression model.  In this case we are regressing the 19 features in the set: AtBat, Hits, HmRun, Runs, RBI, Walks, Years, CAtBat, CHits, CHmRun, CRuns, CRBI, CWalks, League, Division, PutOuts, Assists, Errors, Salary, and NewLeague on MLB player salary
+* Below is the **R** code used to search &#955; values using cross-validation to find the &#955; that minimizies MSE within the specified regression model.  In this case we are regressing the 19 features in the set: AtBat, Hits, HmRun, Runs, RBI, Walks, Years, CAtBat, CHits, CHmRun, CRuns, CRBI, CWalks, League, Division, PutOuts, Assists, Errors, Salary, and NewLeague on log MLB player salary
 ```s
 ### use glmnet's built-in k-fold cross-validation to tune lambda
 set.seed(22)
