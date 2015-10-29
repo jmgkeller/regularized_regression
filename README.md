@@ -57,6 +57,7 @@ ytest <- testdat$Salary
 * Below is the **R** code used to search &#955; values using cross-validation to find the &#955; that minimizies MSE within the specified regression model.  In this case we are regressing the 19 features in the set: AtBat, Hits, HmRun, Runs, RBI, Walks, Years, CAtBat, CHits, CHmRun, CRuns, CRBI, CWalks, League, Division, PutOuts, Assists, Errors, Salary, and NewLeague on MLB player salary
 ```s
 ### use glmnet's built-in k-fold cross-validation to tune lambda
+set.seed(22)
 lasso <- cv.glmnet(x = xtrain            # feature matrix
                   ,y = ytrain            # response vector
                   ,nfolds = 5            # folds for CV
@@ -80,12 +81,12 @@ yhattest <- predict(lasso_model, newx = xtest, s = lambda_1se)
 ```s
 ### Residual Scatterplot (Predicted vs Actual) for training data
 lasso_pct_difference_train <- (yhattrain - ytrain) / ((yhattrain + ytrain / 2))
-color_train <- rep("red", length(lasso_pct_difference_train))
-color_train[lasso_pct_difference_train > -.155 & lasso_pct_difference_train < .155] <- "orange"
-color_train[lasso_pct_difference_train > -.055 & lasso_pct_difference_train < .055] <- "green"
+color_train <- rep("dark red", length(lasso_pct_difference_train))
+color_train[lasso_pct_difference_train > -.155 & lasso_pct_difference_train < .155] <- "dark orange"
+color_train[lasso_pct_difference_train > -.055 & lasso_pct_difference_train < .055] <- "dark green"
 plot(yhattrain, ytrain ,col=color_train, main = "Training: Predicted vs Actuals")
 abline(a = 0, b = 1)
-legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("green", "orange", "red"),lty=1, lwd=2)
+legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("dark green", "dark orange", "dark red"),lty=1, lwd=2)
 ```
 ![trainpva](https://cloud.githubusercontent.com/assets/10633220/10829500/b3e3db40-7e50-11e5-94eb-ce06b430bc2d.png)
 
@@ -93,12 +94,12 @@ legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("green", "orang
 ```s
 ### Residual Scatterplot (Predicted vs Actual) for test data
 lasso_pct_difference_test <- (yhattest - ytest) / ((yhattest + ytest / 2))
-color_train <- rep("red", length(lasso_pct_difference_test))
-color_train[lasso_pct_difference_test > -.155 & lasso_pct_difference_test < .155] <- "orange"
-color_train[lasso_pct_difference_test > -.055 & lasso_pct_difference_test < .055] <- "green"
+color_train <- rep("dark red", length(lasso_pct_difference_test))
+color_train[lasso_pct_difference_test > -.155 & lasso_pct_difference_test < .155] <- "dark orange"
+color_train[lasso_pct_difference_test > -.055 & lasso_pct_difference_test < .055] <- "dark green"
 plot(yhattest, ytest ,col=color_train, main = "Test: Predicted vs Actuals")
 abline(a = 0, b = 1)
-legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("green", "orange", "red"),lty=1, lwd=2)
+legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("dark green", "dark orange", "dark red"),lty=1, lwd=2)
 ```
 
 ![testpva](https://cloud.githubusercontent.com/assets/10633220/10829538/ecac4552-7e50-11e5-9550-d76327059261.png)
