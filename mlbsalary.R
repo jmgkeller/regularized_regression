@@ -69,7 +69,7 @@ lasso_pct_difference_train <- (yhattrain - ytrain) / ((yhattrain + ytrain / 2))
 color_train <- rep("dark red", length(lasso_pct_difference_train))
 color_train[lasso_pct_difference_train > -.155 & lasso_pct_difference_train < .155] <- "dark orange"
 color_train[lasso_pct_difference_train > -.055 & lasso_pct_difference_train < .055] <- "dark green"
-plot(yhattrain, ytrain ,col=color_train, main = "Training: Predicted vs Actuals")
+plot(yhattrain, ytrain ,col=color_train, main = "Training: Predicted vs Actuals", lwd=4)
 abline(a = 0, b = 1)
 legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("dark green", "dark orange", "dark red"),lty=1, lwd=2)
 
@@ -93,7 +93,7 @@ lasso_pct_difference_test <- (yhattest - ytest) / ((yhattest + ytest / 2))
 color_train <- rep("dark red", length(lasso_pct_difference_test))
 color_train[lasso_pct_difference_test > -.155 & lasso_pct_difference_test < .155] <- "dark orange"
 color_train[lasso_pct_difference_test > -.055 & lasso_pct_difference_test < .055] <- "dark green"
-plot(yhattest, ytest ,col=color_train, main = "Training: Predicted vs Actuals")
+plot(yhattest, ytest ,col=color_train, main = "Training: Predicted vs Actuals", lwd=4)
 abline(a = 0, b = 1)
 legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("dark green", "dark orange", "dark red"),lty=1, lwd=2)
 
