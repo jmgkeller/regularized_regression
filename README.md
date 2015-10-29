@@ -71,6 +71,10 @@ lasso <- cv.glmnet(x = xtrain            # feature matrix
 
 <img width="548" alt="minvs1se" src="https://cloud.githubusercontent.com/assets/10633220/10793629/12089eb6-7d68-11e5-9467-ef020f084cae.png">
 
+* Taking a look at the predicted vs actuals scatter plot can give us an idea of model performance.  Below are plots of the predicted vs actuals for the training and test data
+
+
+
 * Training residual distribution for the &#955;<sub>1se</sub> lasso regression model
 
 ![trainresiddist](https://cloud.githubusercontent.com/assets/10633220/10796913/9eefbf2c-7d76-11e5-839a-4d0aeaafe3a3.png)
