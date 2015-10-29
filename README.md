@@ -92,6 +92,9 @@ legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("dark green", "
 
 * I repeat the same process with the test data:
 ```s
+### apply lasso parameters to test dataset to get yhats
+yhattest <- predict(lasso_model, newx = xtest, s = lambda_1se)
+
 ### Residual Scatterplot (Predicted vs Actual) for test data
 lasso_pct_difference_test <- (yhattest - ytest) / ((yhattest + ytest / 2))
 color_train <- rep("dark red", length(lasso_pct_difference_test))
