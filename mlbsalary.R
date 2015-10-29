@@ -66,12 +66,12 @@ yhattrain <- predict(lasso_model, newx = xtrain, s = lambda_1se)
 
 ### Residual Scatterplot (Predicted vs Actual) for training data
 lasso_pct_difference_train <- (yhattrain - ytrain) / ((yhattrain + ytrain / 2))
-color_train <- rep("red", length(lasso_pct_difference_train))
-color_train[lasso_pct_difference_train > -.155 & lasso_pct_difference_train < .155] <- "orange"
-color_train[lasso_pct_difference_train > -.055 & lasso_pct_difference_train < .055] <- "green"
+color_train <- rep("dark red", length(lasso_pct_difference_train))
+color_train[lasso_pct_difference_train > -.155 & lasso_pct_difference_train < .155] <- "dark orange"
+color_train[lasso_pct_difference_train > -.055 & lasso_pct_difference_train < .055] <- "dark green"
 plot(yhattrain, ytrain ,col=color_train, main = "Training: Predicted vs Actuals")
 abline(a = 0, b = 1)
-legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("green", "orange", "red"),lty=1, lwd=2)
+legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("dark green", "dark orange", "dark red"),lty=1, lwd=2)
 
 
 
@@ -90,12 +90,12 @@ yhattest <- predict(lasso_model, newx = xtest, s = lambda_1se)
 
 ### Residual Scatterplot (Predicted vs Actual) for test data
 lasso_pct_difference_test <- (yhattest - ytest) / ((yhattest + ytest / 2))
-color_train <- rep("red", length(lasso_pct_difference_test))
-color_train[lasso_pct_difference_test > -.155 & lasso_pct_difference_test < .155] <- "orange"
-color_train[lasso_pct_difference_test > -.055 & lasso_pct_difference_test < .055] <- "green"
+color_train <- rep("dark red", length(lasso_pct_difference_test))
+color_train[lasso_pct_difference_test > -.155 & lasso_pct_difference_test < .155] <- "dark orange"
+color_train[lasso_pct_difference_test > -.055 & lasso_pct_difference_test < .055] <- "dark green"
 plot(yhattest, ytest ,col=color_train, main = "Training: Predicted vs Actuals")
 abline(a = 0, b = 1)
-legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("green", "orange", "red"),lty=1, lwd=2)
+legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("dark green", "dark orange", "dark red"),lty=1, lwd=2)
 
 length(lasso_pct_difference_test[lasso_pct_difference_test > -.055 & lasso_pct_difference_test < .055])/length(lasso_pct_difference_test)
 length(lasso_pct_difference_test[lasso_pct_difference_test > -.155 & lasso_pct_difference_test < .155])/length(lasso_pct_difference_test)
