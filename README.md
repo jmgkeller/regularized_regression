@@ -34,10 +34,10 @@ testdat <- Hitters[-train_idx,]
 * To use ```glmnet``` functions, **data must be in matrix format**. Below is how I converted the training and test data sets created above from data frames to matrices: 
 ```s
 xtrain <- model.matrix(Salary ~., traindat )[,-1]
-ytrain <- traindat$Salary
+ytrain <- log(traindat$Salary)
 
 xtest <- model.matrix(Salary ~., testdat )[,-1]
-ytest <- testdat$Salary
+ytest <- log(testdat$Salary)
 ```
 ### Methodology
 * We are using linear lasso regression regression to predict log MLB player salary from individual player characteristics.  The obbjective function for lasso regression is below:
