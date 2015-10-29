@@ -42,11 +42,11 @@ ytest <- log(testdat$Salary)
 ### use glmnet's built-in k-fold cross-validation to tune lambda
 set.seed(22)
 lasso <- cv.glmnet(x = xtrain            # feature matrix
-                  ,y = ytrain            # response vector
-                  ,nfolds = 5            # folds for CV
-                  ,lambda =              # path for lambda but we use the build in search for lambda provided by cv.glmnet
-                  ,family = 'gaussian'   # error distribution (gaussian is linear regression, binomial is logistic, etc.)
-                  ,alpha = 1)            # type of regularization. alpha=0 is ridge, alpha=1 is lasso, alpha between 0 and 1 is elastic net
+                   ,y = ytrain            # response vector
+                   ,nfolds = 5            # folds for CV
+                   ,lambda =              # path for lambda but we use the build in search for lambda provided by cv.glmnet
+                     ,family = 'gaussian'   # error distribution (gaussian is linear regression, binomial is logistic, etc.)
+                   ,alpha = 1)            # type of regularization. alpha=0 is ridge, alpha=1 is lasso, alpha between 0 and 1 is elastic net
 
 ### plot error curve across log(lambda)
 plot(lasso)
@@ -67,10 +67,12 @@ yhattrain <- predict(lasso_model, newx = xtrain, s = lambda_1se)
 ### Residual Scatterplot (Predicted vs Actual) for training data
 lasso_pct_difference_train <- (yhattrain - ytrain) / ((yhattrain + ytrain / 2))
 color_train <- rep("red", length(lasso_pct_difference_train))
-color_train[lasso_pct_difference_train > -.155 & lasso_pct_difference_train < .155] <- "yellow"
+color_train[lasso_pct_difference_train > -.155 & lasso_pct_difference_train < .155] <- "orange"
 color_train[lasso_pct_difference_train > -.055 & lasso_pct_difference_train < .055] <- "green"
-plot(yhattrain, ytrain ,col=color_train)
+plot(yhattrain, ytrain ,col=color_train, main = "Training: Predicted vs Actuals")
 abline(a = 0, b = 1)
+legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("green", "orange", "red"),lty=1, lwd=2)
+
 
 
 length(lasso_pct_difference_train[lasso_pct_difference_train > -.055 & lasso_pct_difference_train < .055])/length(lasso_pct_difference_train)
@@ -89,11 +91,11 @@ yhattest <- predict(lasso_model, newx = xtest, s = lambda_1se)
 ### Residual Scatterplot (Predicted vs Actual) for test data
 lasso_pct_difference_test <- (yhattest - ytest) / ((yhattest + ytest / 2))
 color_train <- rep("red", length(lasso_pct_difference_test))
-color_train[lasso_pct_difference_test > -.155 & lasso_pct_difference_test < .155] <- "yellow"
+color_train[lasso_pct_difference_test > -.155 & lasso_pct_difference_test < .155] <- "orange"
 color_train[lasso_pct_difference_test > -.055 & lasso_pct_difference_test < .055] <- "green"
-plot(yhattest, ytest ,col=color_train)
+plot(yhattest, ytest ,col=color_train, main = "Training: Predicted vs Actuals")
 abline(a = 0, b = 1)
-
+legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("green", "orange", "red"),lty=1, lwd=2)
 
 length(lasso_pct_difference_test[lasso_pct_difference_test > -.055 & lasso_pct_difference_test < .055])/length(lasso_pct_difference_test)
 length(lasso_pct_difference_test[lasso_pct_difference_test > -.155 & lasso_pct_difference_test < .155])/length(lasso_pct_difference_test)
