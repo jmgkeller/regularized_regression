@@ -68,8 +68,18 @@ lasso <- cv.glmnet(x = xtrain            # feature matrix
 * We can visually inspect the relationship between log(&#955;) and MSE by using the ```plot(lasso)``` function
 ![lambdamin](https://cloud.githubusercontent.com/assets/10633220/10792647/e16c5f26-7d63-11e5-9582-7220d8178b9c.png)
 
-* The vertical line at log(&#955;) approximately 3 is the &#955; value that minimizing mean squared error and the vertical line at log(&#955;) approximately 4.75 is the &#955; value that minimizes MSE plus 1 standard deviation.  Below are the outputed coeficients from glmnet.  The coefficients on the left are produced by using &#955;<sub>min</sub> and the coefficients on the right are produced using &#955;<sub>1se</sub>.  I used the &#955;<sub>1se</sub> because a larger &#955; produces a more simple model. 
-
+* The vertical line at log(&#955;) approximately 3 is the &#955; value that minimizing mean squared error and the vertical line at log(&#955;) approximately 4.75 is the &#955; value that minimizes MSE plus 1 standard deviation.  Below are the outputed coeficients from glmnet.  The coefficients on the left are produced by using &#955;<sub>min</sub> and the coefficients on the right are produced using &#955;<sub>1se</sub>.  I used the &#955;<sub>1se</sub> because a larger &#955; produces a more simple model.  To show that &#955;<sub>1se</sub> produces a more simple model than &#955;<sub>min</sub> we can fit two lasso models using the same independent and dependent variables and use different values for &#955;
+```s
+### fit the lasso model to the training data using the min lambda and the 1se lambda
+### lambda min
+lasso_model_min <- glmnet(x = xtrain, y = ytrain, alpha = 1, family = 'gaussian', lambda = lambda_min)
+### get the lasso coefficients using lambda min
+lasso_coef <- coef(lasso_model_min)
+### lambda 1se
+lasso_model <- glmnet(x = xtrain, y = ytrain, alpha = 1, family = 'gaussian', lambda = lambda_1se)
+### get the lasso coefficients using lambda 1se
+lasso_coef <- coef(lasso_model)
+```
 <img width="548" alt="minvs1se" src="https://cloud.githubusercontent.com/assets/10633220/10793629/12089eb6-7d68-11e5-9467-ef020f084cae.png">
 
 * I used the ```predict()``` function to get the training predictions:
