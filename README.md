@@ -86,7 +86,7 @@ color_train[lasso_pct_difference_train > -.155 & lasso_pct_difference_train < .1
 color_train[lasso_pct_difference_train > -.055 & lasso_pct_difference_train < .055] <- "dark green"
 plot(yhattrain, ytrain ,col=color_train, main = "Training: Predicted vs Actuals")
 abline(a = 0, b = 1)
-legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("dark green", "dark orange", "dark red"),lty=1, lwd=2)
+legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("dark green", "dark orange", "dark red"),lty=1, lwd=4)
 ```
 ![trainpva](https://cloud.githubusercontent.com/assets/10633220/10830188/b5272af8-7e54-11e5-9173-960c240530a6.png)
 
@@ -99,7 +99,7 @@ color_train[lasso_pct_difference_test > -.155 & lasso_pct_difference_test < .155
 color_train[lasso_pct_difference_test > -.055 & lasso_pct_difference_test < .055] <- "dark green"
 plot(yhattest, ytest ,col=color_train, main = "Test: Predicted vs Actuals")
 abline(a = 0, b = 1)
-legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("dark green", "dark orange", "dark red"),lty=1, lwd=2)
+legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("dark green", "dark orange", "dark red"),lty=1, lwd=4)
 ```
 ![testpva](https://cloud.githubusercontent.com/assets/10633220/10830155/85179f3c-7e54-11e5-8781-d252fb5332d0.png)
 
