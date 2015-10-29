@@ -101,9 +101,7 @@ plot(yhattest, ytest ,col=color_train, main = "Test: Predicted vs Actuals")
 abline(a = 0, b = 1)
 legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("dark green", "dark orange", "dark red"),lty=1, lwd=2)
 ```
-
-![testpva](https://cloud.githubusercontent.com/assets/10633220/10829538/ecac4552-7e50-11e5-9550-d76327059261.png)
-
+![testpva](https://cloud.githubusercontent.com/assets/10633220/10830155/85179f3c-7e54-11e5-8781-d252fb5332d0.png)
 
 * Training residual distribution for the &#955;<sub>1se</sub> lasso regression model
 
