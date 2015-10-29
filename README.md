@@ -71,10 +71,37 @@ lasso <- cv.glmnet(x = xtrain            # feature matrix
 
 <img width="548" alt="minvs1se" src="https://cloud.githubusercontent.com/assets/10633220/10793629/12089eb6-7d68-11e5-9467-ef020f084cae.png">
 
-* Taking a look at the predicted vs actuals scatter plot can give us an idea of model performance.  Below are plots of the predicted vs actuals for the training and test data
-
+* I used the ```predict()``` function to get the training predictions:
+```s 
+### apply lasso parameters to test dataset to get yhats
+yhattest <- predict(lasso_model, newx = xtest, s = lambda_1se)
+```
+* Taking a look at the predicted vs actuals scatter plot can give us an idea of model performance.   I calculated the % difference between the training predictions and the actual values for log MLB player salary. I then used the % diffence values to color predicted vs actual scatter plot values to differentiate pairs that are within 5%, within 15%, and greater than 15%:
+```s
+### Residual Scatterplot (Predicted vs Actual) for training data
+lasso_pct_difference_train <- (yhattrain - ytrain) / ((yhattrain + ytrain / 2))
+color_train <- rep("red", length(lasso_pct_difference_train))
+color_train[lasso_pct_difference_train > -.155 & lasso_pct_difference_train < .155] <- "orange"
+color_train[lasso_pct_difference_train > -.055 & lasso_pct_difference_train < .055] <- "green"
+plot(yhattrain, ytrain ,col=color_train, main = "Training: Predicted vs Actuals")
+abline(a = 0, b = 1)
+legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("green", "orange", "red"),lty=1, lwd=2)
+```
 ![trainpva](https://cloud.githubusercontent.com/assets/10633220/10829500/b3e3db40-7e50-11e5-94eb-ce06b430bc2d.png)
 
+* I repeat the same process with the test data:
+```s
+### Residual Scatterplot (Predicted vs Actual) for test data
+lasso_pct_difference_test <- (yhattest - ytest) / ((yhattest + ytest / 2))
+color_train <- rep("red", length(lasso_pct_difference_test))
+color_train[lasso_pct_difference_test > -.155 & lasso_pct_difference_test < .155] <- "orange"
+color_train[lasso_pct_difference_test > -.055 & lasso_pct_difference_test < .055] <- "green"
+plot(yhattest, ytest ,col=color_train, main = "Test: Predicted vs Actuals")
+abline(a = 0, b = 1)
+legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("green", "orange", "red"),lty=1, lwd=2)
+```
+
+![testpva](https://cloud.githubusercontent.com/assets/10633220/10829538/ecac4552-7e50-11e5-9550-d76327059261.png)
 
 
 * Training residual distribution for the &#955;<sub>1se</sub> lasso regression model
