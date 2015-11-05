@@ -65,12 +65,11 @@ lasso_coef <- coef(lasso_model)
 yhattrain <- predict(lasso_model, newx = xtrain, s = lambda_1se)
 
 ### Residual Scatterplot (Predicted vs Actual) for training data
-lasso_pct_difference_train <- (yhattrain - ytrain) / ((yhattrain + ytrain / 2))
+lasso_pct_difference_train <- (exp(yhattrain) - exp(ytrain)) / ((exp(yhattrain) + exp(ytrain) / 2))
 color_train <- rep("dark red", length(lasso_pct_difference_train))
 color_train[lasso_pct_difference_train > -.155 & lasso_pct_difference_train < .155] <- "dark orange"
 color_train[lasso_pct_difference_train > -.055 & lasso_pct_difference_train < .055] <- "dark green"
-plot(yhattrain, ytrain ,col=color_train, main = "Training: Predicted vs Actuals", lwd=4)
-abline(a = 0, b = 1)
+plot(yhattrain, ytrain ,col=color_train, main = "Training: Predicted vs Actuals", lwd=4, ylim = c(4, max(yhattrain, ytrain)), xlim = c(4, max(yhattrain, ytrain)))abline(a = 0, b = 1)
 legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("dark green", "dark orange", "dark red"),lty=1, lwd=4)
 
 
@@ -89,11 +88,11 @@ hist(yhattrain - ytrain)
 yhattest <- predict(lasso_model, newx = xtest, s = lambda_1se)
 
 ### Residual Scatterplot (Predicted vs Actual) for test data
-lasso_pct_difference_test <- (yhattest - ytest) / ((yhattest + ytest / 2))
+lasso_pct_difference_test <- (exp(yhattest) - exp(ytest)) / ((exp(yhattest) + exp(ytest) / 2))
 color_train <- rep("dark red", length(lasso_pct_difference_test))
 color_train[lasso_pct_difference_test > -.155 & lasso_pct_difference_test < .155] <- "dark orange"
 color_train[lasso_pct_difference_test > -.055 & lasso_pct_difference_test < .055] <- "dark green"
-plot(yhattest, ytest ,col=color_train, main = "Training: Predicted vs Actuals", lwd=4)
+plot(yhattest, ytest ,col=color_train, main = "Test: Predicted vs Actuals", lwd=4, ylim = c(4, max(yhattest, ytest)), xlim = c(4, max(yhattest, ytest)))
 abline(a = 0, b = 1)
 legend("bottomright",c("Witin 5%", "Within 15%", "> 15%"), col=c("dark green", "dark orange", "dark red"),lty=1, lwd=4)
 
